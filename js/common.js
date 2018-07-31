@@ -37,6 +37,8 @@ function createLocalStream(streamId, cameraId, onInit) {
 	}, function (err) {
 		console.log("getUserMedia failed", err);
 	});
+
+	return localStream;
 }
 
 function getVideoFrame(videoId) {
