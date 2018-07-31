@@ -168,7 +168,7 @@ function join() {
 }
 
 function init() {
-	initClient(function(client, uid) {
+	initClient(departmentId, function(client, uid) {
 	});
 	// getLocalStreams(function (localStreams) {
 	// 	initClient(function (client, uid) {

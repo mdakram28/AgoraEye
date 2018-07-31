@@ -1,11 +1,11 @@
-function initClient(done) {
+function initClient(departmentId, done) {
 	console.log("Init AgoraRTC client with App ID: " + appId);
 	client = AgoraRTC.createClient({
 		mode: 'interop'
 	});
 	client.init(appId, function () {
 		console.log("AgoraRTC client initialized");
-		client.join(channel_key, channel_value, null, function (uid) {
+		client.join(channel_key, departmentId, null, function (uid) {
 			console.log("User " + uid + " join channel successfully");
 			done(client, uid);
 		});
@@ -27,13 +27,13 @@ function initClient(done) {
 }
 
 
-function init() {
+function init(departmentId) {
 	getLocalStreams(function (localStreams) {
-		initClient(function (client, uid) {
+		initClient(departmentId, function (client, uid) {
 			console.log("Publishing all streams");
 			publishAllStreams(client, localStreams);
 		});
 	});
 }
 
-init();
+// init();
