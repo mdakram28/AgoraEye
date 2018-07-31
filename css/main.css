@@ -8,8 +8,8 @@ body {
 	padding-top: 5vw;
 }
 #videos > .video-box {
-	width: 30vw;
-	height: 20vw;
+	width: 50vw;
+	height: 30vw;
 	display: inline-block;
 }
 .local-video {
