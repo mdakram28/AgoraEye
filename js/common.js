@@ -42,15 +42,15 @@ function createLocalStream(streamId, cameraId, onInit) {
 }
 
 function getVideoFrame(videoId) {
-	if($("#videos .video-box#"+videoId).length === 0) {
-		$("#video-box-template").clone().attr("id", videoId).appendTo("#videos");
+	if($("#videos .video-box#video-"+videoId).length === 0) {
+		$("#video-box-template").clone().attr("id", "video-"+videoId).appendTo("#videos");
 	}
 
-	return ("#videos .video-box#"+videoId);
+	return ("#videos .video-box#video-"+videoId);
 }
 
 function removeVideoFrame(videoId) {
-	$("#videos .video-box#"+videoId).remove();
+	$("#videos .video-box#video-"+videoId).remove();
 }
 
 function generateUID() {
