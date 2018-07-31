@@ -26,14 +26,19 @@ function initClient(departmentId, done) {
 
 }
 
+var localStreams = [];
 
-function init(departmentId) {
-	getLocalStreams(function (localStreams) {
-		initClient(departmentId, function (client, uid) {
-			console.log("Publishing all streams");
-			publishAllStreams(client, localStreams);
-		});
+function init() {
+	getLocalStreams(function (allLocalStreams) {
+		localStreams = allLocalStreams;
 	});
 }
 
-// init();
+function startStreaming(departmentId) {
+	initClient(departmentId, function (client, uid) {
+		console.log("Publishing all streams");
+		publishAllStreams(client, localStreams);
+	});
+}
+
+init();
