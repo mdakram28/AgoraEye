@@ -5,4 +5,4 @@ A platform which will enable fire department and natural disaster department rem
 **npm install**
 # Step to run the project
 **npm start**
-The project will be live at [localhost](http://localhost:3000)
+### The project will be live at [localhost](http://localhost:3000)
