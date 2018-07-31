@@ -34,7 +34,7 @@ function createLocalStream(streamId, cameraId, onInit) {
 		console.log("getUserMedia successfully");
 		// localStream.play('video' + displayId);
 		getVideoFrame(streamId);
-		localStream.play(streamId);
+		localStream.play("video-"+streamId);
 		if (onInit) onInit();
 	}, function (err) {
 		console.log("getUserMedia failed", err);
