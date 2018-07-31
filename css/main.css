@@ -1,0 +1,20 @@
+body {
+	background-color: black;
+	padding: 0px;
+	margin: 0px;
+}
+#videos {
+	width: 100%;
+	padding-top: 5vw;
+}
+#videos > .video-box {
+	width: 30vw;
+	height: 20vw;
+	display: inline-block;
+}
+.local-video {
+	width: 100%;
+	display: block;
+	height: 100%;
+	border: 1px solid darkslategrey;
+}
