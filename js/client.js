@@ -30,6 +30,7 @@ function initClient(done) {
 function init() {
 	getLocalStreams(function (localStreams) {
 		initClient(function (client, uid) {
+			console.log("Publishing all streams");
 			publishAllStreams(client, localStreams);
 		});
 	});
