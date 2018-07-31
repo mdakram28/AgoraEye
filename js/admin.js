@@ -36,16 +36,17 @@ function initClient(done) {
 	client.on('stream-subscribed', function (evt) {
 		var stream = evt.stream;
 		console.log("Subscribe remote stream successfully: " + stream.getId());
-		if ($('div#video #agora_remote' + stream.getId()).length === 0) {
-			$('div#video').append('<div id="agora_remote' + stream.getId() + '" style="float:left; width:810px;height:607px;display:inline-block;"></div>');
-		}
-		stream.play('agora_remote' + stream.getId());
+		// if ($('div#video #agora_remote' + stream.getId()).length === 0) {
+		// 	$('div#video').append('<div id="agora_remote' + stream.getId() + '" style="float:left; width:810px;height:607px;display:inline-block;"></div>');
+		// }
+		getVideoFrame(stream.getId());
+		stream.play('video-' + stream.getId());
 	});
 
 	client.on('stream-removed', function (evt) {
 		var stream = evt.stream;
 		stream.stop();
-		$('#agora_remote' + stream.getId()).remove();
+		removeVideoFrame(stream.getId());
 		console.log("Remote stream is removed " + stream.getId());
 	});
 
@@ -53,7 +54,7 @@ function initClient(done) {
 		var stream = evt.stream;
 		if (stream) {
 			stream.stop();
-			$('#agora_remote' + stream.getId()).remove();
+			removeVideoFrame(stream.getId());
 			console.log(evt.uid + " leaved from this channel");
 		}
 	});
@@ -134,7 +135,6 @@ function join() {
 		}
 	});
 
-
 	client.on('stream-added', function (evt) {
 		var stream = evt.stream;
 		console.log("New stream added: " + stream.getId());
@@ -168,11 +168,13 @@ function join() {
 }
 
 function init() {
-	getLocalStreams(function (localStreams) {
-		initClient(function (client, uid) {
-			publishAllStreams(client, localStreams);
-		});
+	initClient(function(client, uid) {
 	});
+	// getLocalStreams(function (localStreams) {
+	// 	initClient(function (client, uid) {
+	// 		publishAllStreams(client, localStreams);
+	// 	});
+	// });
 }
 
 init();
