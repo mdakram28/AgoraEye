@@ -9,7 +9,7 @@ AgoraRTC.Logger.info('this is info');
 AgoraRTC.Logger.debug('this is debug');
 
 var channel_key = null;
-var channel_value = 1000;
+var channel_value = "1000";
 var appId = "731a9f30d6c5463c9710216fa61de348";
 
 function createLocalStream(streamId, cameraId, onInit) {
