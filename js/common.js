@@ -85,6 +85,7 @@ function publishStream(client, localStream) {
 }
 
 function publishAllStreams(client, localStreams) {
+	console.log("localStreams : ", localStreams);
 	localStreams.forEach(function (localStream) {
 		publishStream(client, localStream);
 	});
